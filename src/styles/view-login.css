@@ -1,0 +1,42 @@
+/* Componente Login */
+.container-view-login {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}
+.div-burger-cover {
+    width: 40%;
+    padding-left: 20px;
+}
+.div-form-login {
+    width: 60%;
+}
+.title-form-login {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+.title-form-login h3 {
+    color: #FFAB25;
+}
+.title-form-login p {
+    color: white
+}
+/* Componente Form */
+.form-login {
+    border: 3px solid #FFAB25;
+    border-radius: 25px;
+    padding: 50px 20px;
+    background-color: white;
+}
+#inputEmail3, #inputPassword3 {
+    border: 1px solid #FFAB25;
+}
+.btn-login {
+    border: 1px solid #FFAB25;
+    background-color: #FFAB25;
+}
+.btn-login:hover {
+    border: 1px solid #ff9100;
+    background-color: #ff9100;
+}

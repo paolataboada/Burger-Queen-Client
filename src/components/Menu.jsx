@@ -1,11 +1,17 @@
-import React from 'react'
-import { Navbar } from './Navbar'
+import React from 'react';
+import { Navbar } from './Navbar';
+import { Products } from './Products';
+import { ListOrder } from './ListOrder';
+import '../styles/view-menu.css';
 
 export const Menu = () => {
     return (
-        <div>
+        <>
             <Navbar />
-            <h1>menu</h1>
-        </div>
+            <div className="container-menu">
+                <Products />
+                <ListOrder />
+            </div>
+        </>
     )
 }

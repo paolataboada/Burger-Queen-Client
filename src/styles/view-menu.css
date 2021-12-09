@@ -1,0 +1,32 @@
+/* Component Navbar */
+/* .navbar {
+    background-color: black;
+    color: white;
+} */
+/* Componente Menu */
+.container-menu {
+    background-image: url('../assets/bg-burger-menu.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    color: white;
+}
+/* Componente Products */
+.container-all-products {
+    display: flex;
+    width: 60%;
+    padding: 20px 40px;
+}
+.section-breakfast,
+.section-lunch,
+.section-drinks {
+    display: flex;
+    flex-flow: column;
+}
+/* Componente ListOrder */
+.container-list-order {
+    display: flex;
+    width: 40%;
+    padding: 20px 40px;
+}
