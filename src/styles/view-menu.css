@@ -17,6 +17,7 @@
     display: flex;
     width: 60%;
     padding: 20px 40px;
+    justify-content: space-around;
 }
 .section-breakfast,
 .section-lunch,

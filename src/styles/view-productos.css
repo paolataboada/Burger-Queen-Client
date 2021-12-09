@@ -1,0 +1,26 @@
+.card-list-orders{
+    max-width: 20rem;
+    max-height: 28rem;
+}
+
+/**** Ordenes ***/
+
+.container-orders {
+    background-image: url('../assets/bg-burger-menu.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+}
+.pending{
+    color: rgb(204, 204, 7);
+}
+
+.delivering{
+    color: orange;
+}
+
+.delivered {
+    color: green;
+}

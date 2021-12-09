@@ -4,25 +4,19 @@ export const Products = () => {
     return (
         <div class="container-all-products">
             <section className="section-breakfast">
-                <p>Desayuno</p>
-                <button>Producto1</button>
-                <button>Producto2</button>
-                <button>Producto3</button>
-                <button>Producto4</button>
+                <h2>Desayuno</h2>
+                <button type="button" class="btn btn-secondary">Secondary</button>
+
             </section>
             <section className="section-lunch">
-                <p>Lunch</p>
-                <button>Producto1</button>
-                <button>Producto2</button>
-                <button>Producto3</button>
-                <button>Producto4</button>
+                <h2>Hamburgesas</h2>
+                <button type="button" class="btn btn-secondary">Secondary</button>
+
             </section>
             <section className="section-drinks">
-                <p>Drinks</p>
-                <button>Producto1</button>
-                <button>Producto2</button>
-                <button>Producto3</button>
-                <button>Producto4</button>
+                <h2>Bebidas</h2>
+                <button type="button" class="btn btn-secondary">Secondary</button>
+
             </section>
         </div>
     )
