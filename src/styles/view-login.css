@@ -32,6 +32,13 @@
 #inputEmail3, #inputPassword3 {
     border: 1px solid #FFAB25;
 }
+
+.form-control:focus{
+    /* border-color: #FFAB25; */
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
 .btn-login {
     border: 1px solid #FFAB25;
     background-color: #FFAB25;
