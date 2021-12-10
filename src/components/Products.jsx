@@ -9,7 +9,7 @@ export const Products = () => {
 
             </section>
             <section className="section-lunch">
-                <h2>Hamburgesas</h2>
+                <h2>Hamburguesas</h2>
                 <button type="button" class="btn btn-secondary">Secondary</button>
 
             </section>

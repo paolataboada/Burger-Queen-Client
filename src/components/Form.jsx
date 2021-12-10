@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import app from '../services/fbconfig.js';
+
+console.log(app)
 
 export const Form = () => {
     const [credenciales, setCredenciales] = useState({
@@ -13,23 +16,23 @@ export const Form = () => {
             ...credenciales,
             [e.target.name] : e.target.value,
         })
-        console.log(credenciales);
     };
 
-    const btnLogin = (e) => {
+    const btnLogin = async (e) => {
         e.preventDefault();
         const URL = 'https://bq-lim015.herokuapp.com/auth';
-        console.log(credenciales);
-       axios.post(URL, credenciales).then((res) => {
-        if (res.request.status === 200){
-            console.log(res.data.token);
-           localStorage.setItem('token', res.data.token);
-           // console.log(JSON.parse(localStorage.setItem('token', res.data.token)));
-        //    props.history.push('/menu');
+        await axios.post(URL, credenciales)
+        .then((res) => {
+            console.log(res)
+            if (res.request.status === 200){
+                console.log(res.data.token);
+                localStorage.setItem('token', res.data.token);
+                // console.log(JSON.parse(localStorage.setItem('token', res.data.token)));
+                // props.history.push('/menu');
+            }
+        })
+        .catch((err) => console.log(err));
         }
-    })
-    .catch((res) => console.log(res));
-    }
     
 
 
