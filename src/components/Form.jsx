@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { useNavigate  } from 'react-router-dom';
+// import axios from 'axios';
 import app from '../services/fbconfig.js';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
-console.log(app)
+const auth = getAuth(app);
 
 export const Form = () => {
+    const navigate = useNavigate();
     const [credenciales, setCredenciales] = useState({
         name : '',
         password:'',
@@ -18,24 +21,22 @@ export const Form = () => {
         })
     };
 
-    const btnLogin = async (e) => {
+    const btnLogin = (e) => {
         e.preventDefault();
-        const URL = 'https://bq-lim015.herokuapp.com/auth';
-        await axios.post(URL, credenciales)
-        .then((res) => {
-            console.log(res)
-            if (res.request.status === 200){
-                console.log(res.data.token);
-                localStorage.setItem('token', res.data.token);
-                // console.log(JSON.parse(localStorage.setItem('token', res.data.token)));
-                // props.history.push('/menu');
-            }
-        })
-        .catch((err) => console.log(err));
-        }
+        // Iniciar sesión con firebase auth
+        signInWithEmailAndPassword(auth, credenciales.name, credenciales.password)
+            .then((userCredential) => {
+                // Signed in
+                // const user = userCredential.user;
+                navigate('/menu');
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode, errorMessage)
+            })
+    };
     
-
-
     return (
         <>
             <form className="d-grid gap-2 col-9 mx-auto form-login">

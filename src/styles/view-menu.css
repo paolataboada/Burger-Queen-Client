@@ -19,11 +19,20 @@
     padding: 20px 40px;
     justify-content: space-around;
 }
-.section-breakfast,
-.section-lunch,
-.section-drinks {
+.section-lunch {
     display: flex;
     flex-flow: column;
+}
+.container-div-card {
+    display: flex;
+}
+.div-card {
+    width: 10rem;
+    background-color: rgb(61, 61, 61);
+}
+.burger-card-top {
+    width: 30%;
+    margin: auto;
 }
 /* Componente ListOrder */
 .container-list-order {
