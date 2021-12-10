@@ -38,15 +38,15 @@ export const FormAddUser = () => {
             email: user.email,
             password: dataUser.inputPassword,
             dateCreate: new Date().toLocaleString(),
+            creator: 'admin'
           });
-          console.log("Document written with ID: ", docRef.then(res => console.log(res)));
+          console.log("Document written with ID: ", docRef.id);
         })
         .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
         });
-
     };
 
     return (

@@ -8,8 +8,8 @@ export const Admin = () => {
         <>
             <Navbar />
             <div className='dv-container-admin'>
-               <FormAddUser />
-               <Users />
+                <FormAddUser />
+                <Users />
             </div>
         </>
     )

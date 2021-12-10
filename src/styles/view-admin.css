@@ -12,4 +12,10 @@
     height: 100vh;
     display: flex;
     color: white;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+.container-users-list {
+    width: 60%;
+    background-color: whitesmoke;
 }
