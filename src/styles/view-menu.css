@@ -16,12 +16,19 @@
 .container-all-products {
     display: flex;
     width: 60%;
+   
     padding: 20px 40px;
     justify-content: space-around;
+   
+}
+.dv-cards-burger{
+    overflow-y: scroll;
+    height: 90vh;
 }
 .section-lunch {
     display: flex;
     flex-flow: column;
+    align-items: center;
 }
 .container-div-card {
     display: flex;
@@ -39,4 +46,13 @@
     display: flex;
     width: 40%;
     padding: 20px 40px;
+}
+
+.btn-agregar{
+    background: rgb(151, 182, 41);
+    border: green;
+}
+
+.btn-agregar:hover{
+    background: green;
 }
