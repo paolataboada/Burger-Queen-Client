@@ -33,7 +33,7 @@ export const Products = () => {
         <div class="container-all-products">
             <section className="section-lunch">
                 <h2>Hamburguesas</h2>
-                <div className="row row-cols-1 row-cols-md-3 g-2 dv-cards-burger">
+                <div className="row row-cols-1 row-cols-md-3 g-2">
                     {data.map((item) => {
                         return (
                             <div className="col">
@@ -42,7 +42,7 @@ export const Products = () => {
                                     <div className="card-body mx-auto">
                                         <h5 className="card-title">{item.name}</h5>
                                         <p className="card-text">s/. {item.id <= 20 ? item.id + 10 : item.id - 2}.00</p>
-                                        <button className='btn btn-primary btn-agregar'>Agregar</button>
+                                        <button className='btn btn-primary'>Agregar</button>
                                     </div>
                                 </div>
                             </div>

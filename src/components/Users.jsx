@@ -1,40 +1,48 @@
 import React, { useState, useEffect } from 'react';
-import { getFirestore, collection, onSnapshot, getDocs, query, where} from "firebase/firestore";
+import { getFirestore, collection, onSnapshot, query, orderBy, deleteDoc, doc, updateDoc } from "firebase/firestore";
 
 const db = getFirestore();
 
 export const Users = () => {
     const [users, setUsers] = useState([]);
 
-    async function getUsers(db) {
-        // const unsub = onSnapshot(query, (doc) => {
-        //     console.log("Current data: ", doc.data());
-        // });
-        // console.log(unsub);
-        
-        // const usersCol = collection(db, 'users');
-        // const userSnapshot = await getDocs(usersCol);
-        // const userList = userSnapshot.docs.map(doc => doc.data());
-        // console.log(userList);
-        // return setUsers(userList)
-
-        const q = query(collection(db, "users"), where("creator", "==", "admin"));
-        const unsubscribe = onSnapshot(q, (querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-                console.log(doc);
-                return doc;
+    const getUsers = (db) => {
+        const usersCol = query(collection(db, "users"), orderBy("dateCreate", "asc"));
+        return onSnapshot(usersCol, (querySnapshot) => {
+            const userList = [];
+            querySnapshot.forEach(async (doc) => {
+                userList.push(doc.data());
             });
+            // console.log(17, userList)
+            setUsers(userList);
         });
-        return unsubscribe;
+    }
+
+    // Borra la colección del usuario
+    const deleteUser = async (docId) => {
+        const confirmDelete = window.confirm('Seguro que deseas borrar a este usuario?');
+        if (confirmDelete) await deleteDoc(doc(db, 'users', docId));
+    }
+
+    // Edita la colección del usuario
+    const editUser = async (docId) => {
+        const newEmail = prompt('nuevo user', '');
+        const newPassword = prompt('nuevo pass', '');
+
+        if (newEmail && newPassword)
+        await updateDoc(doc(db, 'users', docId), {
+            email: newEmail,
+            password: newPassword,
+            dateCreate: new Date().toLocaleString()
+        });
     }
 
     useEffect(() => {
         return getUsers(db);
     }, [])
 
-
     return (
-        <div class="container-users-list">
+        <div className="container-users-list">
             <table className="table my-0">
                 <thead>
                     <tr>
@@ -51,9 +59,9 @@ export const Users = () => {
                                 <th scope="row">{index+1}</th>
                                 <td>{col.email}</td>
                                 <td>{col.dateCreate}</td>
-                                <td>
-                                    <button>Editar</button>
-                                    <button>Borrar</button>
+                                <td className='d-md-flex justify-content-md-end'>
+                                    <button onClick={() => editUser(col.docId)} className='btn btn-primary'>Editar</button>
+                                    <button onClick={() => deleteUser(col.docId)} className='btn btn-danger'>Borrar</button>
                                 </td>
                             </tr>
                         )
