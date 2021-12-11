@@ -59,9 +59,9 @@ export const Users = () => {
                                 <th scope="row">{index+1}</th>
                                 <td>{col.email}</td>
                                 <td>{col.dateCreate}</td>
-                                <td className='d-md-flex justify-content-md-end'>
-                                    <button onClick={() => editUser(col.docId)} className='btn btn-primary'>Editar</button>
-                                    <button onClick={() => deleteUser(col.docId)} className='btn btn-danger'>Borrar</button>
+                                <td className='d-md-flex justify-content-md-between'>
+                                    <button onClick={() => editUser(col.docId)} className='btn btn-primary btn-sm'>Editar</button>
+                                    <button onClick={() => deleteUser(col.docId)} className='btn btn-danger btn-sm'>Borrar</button>
                                 </td>
                             </tr>
                         )

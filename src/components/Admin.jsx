@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/view-admin.css';
 import { FormAddUser } from './FormAddUser';
 import { Navbar } from './Navbar';
 import { Users } from './Users';

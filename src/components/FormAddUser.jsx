@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import '../styles/view-admin.css';
+import React, { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, collection, addDoc, doc, updateDoc } from "firebase/firestore";
 
@@ -63,7 +62,7 @@ export const FormAddUser = () => {
                 <label htmlFor="inputPassword2" className="sr-only">Password</label>
                 <input onChange={handleChange} type="password" name='inputPassword' className="form-control" id="inputPassword2" placeholder="Password" />
             </div>
-            <div className="form-group mx-sm-3 mb-2">
+            <div className="form-group mx-sm-3 mt-4">
                 <button onClick={btnCreateUser} type="submit" className="btn btn-primary">Create User</button>
             </div>        
         </form>
