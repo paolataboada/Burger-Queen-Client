@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import axios from 'axios';
 import burgerTopCard from '../assets/burger-top-card.png'
 
 export const Products = () => {
     const [data, setData] = useState([]);
+    // Context API
+    const UserContext = createContext();
+    const [orders, setOrders] = useState([]);
     
     const options = {
         method: 'GET',
@@ -14,10 +17,10 @@ export const Products = () => {
         }
     };
 
-    const showProducts = () => {
+    const fetchData = () => {
         axios.request(options)
         .then(function (response) {
-            console.log(response.data);
+            // console.log(response.data);
             setData(response.data.burgers)
         })
         .catch(function (error) {
@@ -26,23 +29,46 @@ export const Products = () => {
     };
 
     useEffect(() => {
-        return showProducts()
+        return fetchData()
     }, [])
 
+    const uniqueOrders = {};
+    const handleOrder = (e) => {
+        e.preventDefault();
+        const orderList = [];
+        orderList.push(e.target.dataset.neworder);
+        
+        orderList.map((element) => {
+            return uniqueOrders[element] = uniqueOrders[element]
+            ? uniqueOrders[element] + 1 : 1;
+        })
+        console.log('current order', uniqueOrders);
+
+        // setOrders({
+        //     ...orders,
+        //     uniqueOrders
+        // });
+        // console.log(51, orders)
+    };
+    
+    // useEffect(() => {
+    //     console.log('setOrders', orders)
+    // }, [orders])
+
     return (
-        <div class="container-all-products">
+        <div className="container-all-products">
             <section className="section-lunch">
                 <h2>Hamburguesas</h2>
                 <div className="row row-cols-1 row-cols-md-3 g-2">
-                    {data.map((item) => {
+                    {data.map((item, index) => {
                         return (
-                            <div className="col">
+                            <div className="col" key={index+1}>
                                 <div className="card div-card">
                                     <img src={burgerTopCard} className="card-img-top burger-card-top" alt="..." />
                                     <div className="card-body mx-auto">
                                         <h5 className="card-title">{item.name}</h5>
                                         <p className="card-text">s/. {item.id <= 20 ? item.id + 10 : item.id - 2}.00</p>
-                                        <button className='btn btn-primary'>Agregar</button>
+                                        <button className='btn btn-primary' data-neworder={item.id} onClick={handleOrder}>Agregar</button>
                                     </div>
                                 </div>
                             </div>

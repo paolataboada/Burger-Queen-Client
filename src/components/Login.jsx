@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form } from './Form';
+import { FormLogin } from './FormLogin';
 import burger from '../assets/burger-cover.png'
 import '../styles/view-login.css'
 
@@ -15,7 +15,7 @@ export const Login = () => {
                         <h3>Welcome back!</h3>
                         <p>Login to continue Burger City</p>
                     </div>
-                    <Form />
+                    <FormLogin />
                 </div>
             </div>
         </>

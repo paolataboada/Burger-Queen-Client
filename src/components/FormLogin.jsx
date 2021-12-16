@@ -6,14 +6,14 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const auth = getAuth(app);
 
-export const Form = () => {
+export const FormLogin = () => {
     const navigate = useNavigate();
     const [credenciales, setCredenciales] = useState({
         name : '',
         password:'',
     });
 
-    const handleCHange = (e) => {
+    const handleChange = (e) => {
         e.preventDefault();
         setCredenciales({
             ...credenciales,
@@ -43,13 +43,13 @@ export const Form = () => {
                 <div className="form-group row">
                     <label htmlFor="inputEmail3" className="col-sm-3 col-form-label">Email</label>
                     <div className="col-sm-9">
-                        <input onChange={handleCHange} type="email" name='name' className="form-control" id="inputEmail3" placeholder="Email"/>
+                        <input onChange={handleChange} type="email" name='name' className="form-control" id="inputEmail3" placeholder="Email"/>
                     </div>
                 </div>
                 <div className="form-group row">
                     <label htmlFor="inputPassword3" className="col-sm-3 col-form-label">Password</label>
                     <div className="col-sm-9">
-                        <input type="password" onChange={handleCHange} name='password' className="form-control" id="inputPassword3" placeholder="Password"/>
+                        <input type="password" onChange={handleChange} name='password' className="form-control" id="inputPassword3" placeholder="Password"/>
                     </div>
                 </div>
                 <div className="form-group row">

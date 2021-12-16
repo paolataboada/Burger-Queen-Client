@@ -26,8 +26,8 @@ export const Users = () => {
 
     // Edita la colección del usuario
     const editUser = async (docId) => {
-        const newEmail = prompt('nuevo user', '');
-        const newPassword = prompt('nuevo pass', '');
+        const newEmail = prompt('Set a new email:', '');
+        const newPassword = prompt('Set a new password:', '');
 
         if (newEmail && newPassword)
         await updateDoc(doc(db, 'users', docId), {
@@ -55,7 +55,7 @@ export const Users = () => {
                 <tbody>
                     {users.map((col, index) => {
                         return (
-                            <tr>
+                            <tr key={index+1}>
                                 <th scope="row">{index+1}</th>
                                 <td>{col.email}</td>
                                 <td>{col.dateCreate}</td>
