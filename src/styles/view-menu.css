@@ -37,18 +37,36 @@
     width: 30%;
     margin: auto;
 }
+.btn-agregar{
+    background: rgb(151, 182, 41);
+    border: green;
+}
+.btn-agregar:hover{
+    background: green;
+}
 /* Componente ListOrder */
 .container-list-order {
     display: flex;
     width: 40%;
     padding: 20px 40px;
 }
-
-.btn-agregar{
-    background: rgb(151, 182, 41);
-    border: green;
+.card-list-order {
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
 }
-
-.btn-agregar:hover{
-    background: green;
+.items-list-order {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    min-height: 30px;
+}
+.item-name {
+    width: 60%;
+}
+.item-price {
+    width: 25%;
+}
+.item-count {
+    width: 15%;
 }

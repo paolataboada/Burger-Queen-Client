@@ -1,18 +1,16 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import '../styles/view-productos.css';
 
 export const ListOrder = (props) => {
-
     let uniqueOrders = {};
-    props.ordersall.map((element) =>  uniqueOrders[element] = uniqueOrders[element] ? uniqueOrders[element] + 1 : 1); 
-
-   
-
-    // let claves = Object.keys(uniqueOrders); 
-
-
-    // let claves2 = Object.values(uniqueOrders); 
-    // console.log(claves2)
+    props.ordersall.map(
+        (element) =>
+            (uniqueOrders[element] = uniqueOrders[element]
+                ? uniqueOrders[element] + 1
+                : 1)
+    );
 
     return (
         <div className="container-list-order">
@@ -21,19 +19,38 @@ export const ListOrder = (props) => {
                     <label htmlFor="">Name client:</label>
                     <input type="text" placeholder="Client" />
                 </div>
-                <div className="card-body" style={{display:'flex', justifyContent:'start', flexDirection:'column'}}>
+                <div className="card-body card-list-order">
                     <h5 className="card-title">Order List</h5>
-                    <ul>
-                    {
-                         Object.entries(uniqueOrders).map(([key, value],i) => ( <li key={i}><span>{key}</span><span>{value}</span></li>))
-                    } 
-                    </ul>
-                                  
+                    {Object.entries(uniqueOrders).map(([name, count], i) => (
+                        <label key={i} className="items-list-order">
+                            <label className="item-name">
+                                {name.split(',')[0]}
+                            </label>
+                            <label className="item-price">
+                                s/.{name.split(',')[1] * count}
+                            </label>
+                            <label className="item-count">{count}</label>
+                            <button>
+                                <FontAwesomeIcon
+                                    className="fontTrash"
+                                    icon={faTrashAlt}
+                                />
+                            </button>
+                        </label>
+                    ))}
+                    <label>
+                        Total: s/.
+                        {Object.entries(uniqueOrders)
+                            .map((el) => el[0].split(',')[1] * el[1])
+                            .reduce((prev, next) => prev + next, 0)}
+                    </label>
                 </div>
                 <div className="d-grid col-5 mx-auto">
-                    <button type="submit" className="btn btn-warning btn-login">Send</button>
+                    <button type="submit" className="btn btn-warning btn-login">
+                        Send
+                    </button>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
