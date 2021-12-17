@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar } from './Navbar';
 import { Products } from './Products';
-import { ListOrder } from './ListOrder';
+// import { ListOrder } from './ListOrder';
 import '../styles/view-menu.css';
 
 export const Menu = () => {
@@ -10,7 +10,7 @@ export const Menu = () => {
             <Navbar />
             <div className="container-menu">
                 <Products />
-                <ListOrder />
+                {/* <ListOrder /> */}
             </div>
         </>
     )
